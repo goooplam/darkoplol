@@ -1,1 +1,89 @@
-d
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Button Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #ff6b6b;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff4757;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate {
+            animation: pop 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Welcome to the Fun Button Website!</h1>
+        <button onclick="displayMessage()">Click Me!</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function displayMessage() {
+            const messages = [
+                "You're awesome!",
+                "Keep going!",
+                "Smile more, it's contagious!",
+                "You're doing great!",
+                "This button loves you!"
+            ];
+
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const messageElement = document.getElementById('message');
+            messageElement.textContent = randomMessage;
+
+            // Add animation class
+            messageElement.classList.add('animate');
+            setTimeout(() => messageElement.classList.remove('animate'), 500);
+        }
+    </script>
+
+</body>
+</html>
