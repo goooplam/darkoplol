@@ -3,85 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Button Website</title>
+    <title>DarkopLOL101 Server</title>
+
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f6d365, #fda085);
+            background-color: #2b2b2b; /* Static single-color background */
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            color: white;
+            font-size: 28px;
             margin-bottom: 20px;
         }
 
-        button {
-            padding: 15px 30px;
-            font-size: 20px;
-            background-color: #ff6b6b;
-            border: none;
-            color: white;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
+        .server-address {
+            font-size: 22px;
+            margin: 20px 0;
             cursor: pointer;
+            color: #4caf50;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 1px solid transparent;
         }
 
-        button:hover {
-            background-color: #ff4757;
+        .server-address:hover {
+            background-color: rgba(76, 175, 80, 0.3);
+            border: 1px solid #4caf50;
+            transform: scale(1.1);
         }
 
-        button:active {
-            transform: scale(0.95);
+        .links {
+            margin-top: 30px;
         }
 
-        #message {
-            margin-top: 20px;
-            font-size: 18px;
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        @keyframes pop {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        .links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffcc70;
         }
 
-        .animate {
-            animation: pop 0.5s ease forwards;
+        .icon {
+            margin-right: 8px;
+            vertical-align: middle;
         }
+
     </style>
 </head>
 <body>
 
-    <div>
-        <h1>Welcome to the Fun Button Website!</h1>
-        <button onclick="displayMessage()">Click Me!</button>
-        <p id="message"></p>
+    <div class="container">
+        <h1>Join My Minecraft Server!</h1>
+        <p class="server-address" onclick="copyText()">DarkopLOL101.aternos.me:38609</p>
+        <div class="links">
+            <a href="https://www.youtube.com/@DarkopLOL101" target="_blank">
+                <i class="fab fa-youtube icon"></i> YouTube Channel
+            </a>
+            <a href="https://discord.com/invite/mYDASnjxJN" target="_blank">
+                <i class="fab fa-discord icon"></i> Discord Server
+            </a>
+        </div>
     </div>
 
     <script>
-        function displayMessage() {
-            const messages = [
-                "You're awesome!",
-                "Keep going!",
-                "Smile more, it's contagious!",
-                "You're doing great!",
-                "This button loves you!"
-            ];
-
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            const messageElement = document.getElementById('message');
-            messageElement.textContent = randomMessage;
-
-            // Add animation class
-            messageElement.classList.add('animate');
-            setTimeout(() => messageElement.classList.remove('animate'), 500);
+        function copyText() {
+            const text = "DarkopLOL101.aternos.me:38609";
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Server address copied to clipboard!");
+            });
         }
     </script>
 
